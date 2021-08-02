@@ -75,6 +75,7 @@ function find( value, array ){
   return x;//Before, the function returned true if (array[i]==value) else returned false.
   //However, unless 'value' was the first item in 'array', the function always returned false b/c 'return' broke the for loop.
   //Using a global variable outside the for loop allows us to iterate through each index in array (if necessary).
+  //Could 'continue' be used to stay w/in the loop and move to the next iteration?
 }
 console.log('The value is in the array:', find(5, [2, 5, 1]));// Test to see if 5 is in [2, 5, 1]. Expect true.
 // ----------------------
