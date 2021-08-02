@@ -102,11 +102,19 @@ function sumAll(array) {
   }
   return sum;
 }
-console.log('The sum of the numbers in the array is:', sumAll([1, 2, 3, 4]))//Example array [1,2,3,4] should yield sum=10.
+console.log('The sum of the numbers in the array is:', sumAll([1, 2, 3, 4]));//Example array [1,2,3,4] should yield sum=10.
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
-
+function arrayPos(array) {
+  let newArr = [];//Defines a new, empty array
+  for (i=0; i<array.length; i++)//Iterates through all indices of the input array
+    if (array[i]>0) {
+      newArr.push(array[i]);//If an element of the input array is positive, it's added to newArr
+    }
+  return newArr;
+}
+console.log('Here is a new array of only positive numbers:', arrayPos([-2, -1, 0, 1, 2, -3]));//Expected output [1, 2]
 
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or
