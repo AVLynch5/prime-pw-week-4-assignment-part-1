@@ -84,18 +84,25 @@ console.log('The value is in the array:', find(5, [2, 5, 1]));// Test to see if 
 // 8. Function to check if a letter is the first letter in a
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
-
-}
+  if (string[0]==letter) {
+    return true;
+  } else {
+    return false;
+  }
+}//Strings act like arrays in terms of indexing!
 console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') );
 console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
 
 // 9. Function to return the sum of all numbers in an array
-function sumAll( ) {
+function sumAll(array) {
   let sum = 0
   // TODO: loop to add items
+  for (let x of array) {
+    sum += x;
+  }
   return sum;
 }
-
+console.log('The sum of the numbers in the array is:', sumAll([1, 2, 3, 4]))//Example array [1,2,3,4] should yield sum=10.
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
