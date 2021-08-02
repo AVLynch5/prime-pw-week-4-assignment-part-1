@@ -63,16 +63,18 @@ console.log('The last item in the array is:', getLast([1, 2, 3, 4, 5]));//test w
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find
 function find( value, array ){
-  let x;
+  let x;//Attempting to use a global variable. 'Return' breaks loop & returns value for function.
   for (i=0;i<array.length;i++) {
     if (array[i]==value) {
       x = true;
-      break;
+      break;//We need to determine if a value is in an array. If it's found, there's no need to iterate through every index.
     } else {
       x = false;
     }
   }
-  return x;
+  return x;//Before, the function returned true if (array[i]==value) else returned false.
+  //However, unless 'value' was the first item in 'array', the function always returned false b/c 'return' broke the for loop.
+  //Using a global variable outside the for loop allows us to iterate through each index in array (if necessary).
 }
 console.log('The value is in the array:', find(5, [2, 5, 1]));// Test to see if 5 is in [2, 5, 1]. Expect true.
 // ----------------------
