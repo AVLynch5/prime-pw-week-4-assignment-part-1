@@ -139,3 +139,22 @@ function triangle(num) {
 console.log('Number of dots:', triangle(1));//Example using triangle number = 1. Expected result is 1
 console.log('Number of dots:', triangle(6));//Example using triangle number = 6. Expected result is 21
 console.log('Number of dots:', triangle(215));//Example using triangle number = 215. Expected result is 23220
+
+//Recursion: Array Summation (edabit, very hard):
+//Function to sum the elements of an array numerically
+function recurAdd(array) {
+  if (array.length==0) {
+    return 0;//If the input array is empty, the function returns a sum value of 0
+  } else {
+    return array[0]+recurAdd(array.slice(1));//array.slice(x) creates a new array starting at/including
+    //the element at index x of array. Similar to array.switch() but nondestructive. Effectively reduces
+    //the size of the input array to our base case ([]) where the sum is 0.
+    //When the input array isn't empty, the function returns a value equal to array[0]+array[1]+array[2]+...+array[n]
+    //until array.length==0, which is accomplished by recursively removing the first element of the input array.
+    //I need to work on these explanations, dang. But these recursive functions are fun as heck.
+    //when array.switch is used in line 149, error: "uncaught typeerror: cannot read property 'length' of undefined"
+  }
+}
+console.log('Sum of the array is:', recurAdd([1, 2, 3, 4, 10, 11]));//expected value = 31
+console.log('Sum of the array is:', recurAdd([-3, 4, 11, 10, 21, 32, -9]));//expected value = 66
+console.log('Sum of the array is:', recurAdd([-21, -7, 19, 3, 4, -8]));//expected value = -10
