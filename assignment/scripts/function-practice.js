@@ -120,3 +120,22 @@ console.log('Here is a new array of only positive numbers:', arrayPos([-2, -1, 0
 // 11. Pick a problem from Edabit(https://edabit.com/) or
 //     CodeWars(https://www.codewars.com/). Then describe it
 //     here in a comment, write the function, and test it!
+//Triangular Number Sequence (Edabit, medium):
+//"The triangular number sequence is generated from a pattern of dots that form a triangle."
+//"The first 5 numbers of the sequence, or dots, are: 1, 3, 6, 10, 15." So the 1st triangle has 1 dot, the 2nd has 3, the 3rd has 6, etc.
+//Design a function to return the number of dots making up the input triangle number.
+function triangle(num) {
+  let numMinus=num-1;
+  //f(1)=1, f(2)=3,f(3)=6, f(4)=10...i.e f(4)=4+f(3), f(3)=3+f(2), f(2)=2+f(1), f(1)=1+f(0). Model: f(n)=n+f(n-1)
+  if (numMinus >= 0) {
+  //We designate numMinus (aka n-1) as 0 because f(0)=0, our 'base case'
+    num+=triangle(numMinus);
+  //Here is the part where the function becomes recursive. Starting with an input num(n), we iteratively add
+  //numMinus (n-1) until n-1<0, at which point our recursive loop ends. AKA, for an input num=4:
+  //f(4)=4+f(3)=4+3+f(2)=4+3+2+f(1)=4+3+2+1+f(0)=4+3+2+1+0=10.
+  }
+  return num;
+}
+console.log('Number of dots:', triangle(1));//Example using triangle number = 1. Expected result is 1
+console.log('Number of dots:', triangle(6));//Example using triangle number = 6. Expected result is 21
+console.log('Number of dots:', triangle(215));//Example using triangle number = 215. Expected result is 23220
